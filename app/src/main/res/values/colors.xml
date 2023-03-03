@@ -20,5 +20,6 @@
     <color name="dark_grey">#3F3F3F</color>
     <color name="trade_info_text_black">#040402</color>
     <color name="back">"#CDCBC7"</color>
+    <color name="icon_tint">#909090</color>
 
 </resources>
