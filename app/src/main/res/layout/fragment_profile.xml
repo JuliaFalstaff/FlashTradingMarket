@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/toolbarLayout"
+        layout="@layout/toolbar_layout" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/profileAvatarImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/sample_avatar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarLayout" />
+
+    <TextView
+        android:id="@+id/changePhotoTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_8dp"
+        android:text="@string/change_photo"
+        android:textColor="@color/light_grey"
+        android:textSize="@dimen/change_photo_text_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profileAvatarImageView" />
+
+    <TextView
+        android:id="@+id/profileNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_16dp"
+        android:textColor="@color/dark_grey"
+        android:textSize="@dimen/profile_name_size"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/changePhotoTextView"
+        tools:text="@string/profile_name" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/uploadButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_32dp"
+        android:layout_marginTop="@dimen/margin_32dp"
+        android:layout_marginEnd="@dimen/margin_32dp"
+        android:background="@drawable/background_upload_button"
+        android:text="@string/upload_item"
+        android:textAllCaps="false"
+        android:textColor="@color/white_color"
+        android:textSize="@dimen/upload_button_text_size"
+        android:textStyle="bold"
+        app:icon="@drawable/ic_share"
+        app:iconGravity="textStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profileNameTextView" />
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/storeImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_16dp"
+        android:src="@drawable/ic_trade"
+        app:layout_constraintStart_toStartOf="@+id/uploadButton"
+        app:layout_constraintTop_toBottomOf="@+id/uploadButton" />
+
+    <TextView
+        android:id="@+id/tradeStoreTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_8dp"
+        android:text="@string/trade_store"
+        android:textColor="@color/trade_info_text_black"
+        android:textSize="@dimen/trade_info_text_size"
+        app:layout_constraintBottom_toBottomOf="@+id/storeImageView"
+        app:layout_constraintStart_toEndOf="@+id/storeImageView"
+        app:layout_constraintTop_toTopOf="@+id/storeImageView" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/storeImageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_arrow"
+        android:backgroundTint="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/storeImageView"
+        app:layout_constraintEnd_toEndOf="@+id/uploadButton"
+        app:layout_constraintTop_toTopOf="@+id/storeImageView" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/paymentImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_16dp"
+        android:src="@drawable/ic_trade"
+        app:layout_constraintStart_toStartOf="@+id/storeImageView"
+        app:layout_constraintTop_toBottomOf="@+id/storeImageView" />
+
+    <TextView
+        android:id="@+id/paymentTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_8dp"
+        android:text="@string/payment_method"
+        android:textColor="@color/trade_info_text_black"
+        android:textSize="@dimen/trade_info_text_size"
+        app:layout_constraintBottom_toBottomOf="@+id/paymentImageView"
+        app:layout_constraintStart_toEndOf="@+id/paymentImageView"
+        app:layout_constraintTop_toTopOf="@+id/paymentImageView" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/paymentImageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_arrow"
+        android:backgroundTint="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/paymentImageView"
+        app:layout_constraintEnd_toEndOf="@+id/uploadButton"
+        app:layout_constraintTop_toTopOf="@+id/paymentImageView" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/balanceImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_16dp"
+        android:src="@drawable/ic_trade"
+        app:layout_constraintStart_toStartOf="@+id/paymentImageView"
+        app:layout_constraintTop_toBottomOf="@+id/paymentImageView" />
+
+    <TextView
+        android:id="@+id/balanceTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_8dp"
+        android:text="@string/balance"
+        android:textColor="@color/trade_info_text_black"
+        android:textSize="@dimen/trade_info_text_size"
+        app:layout_constraintBottom_toBottomOf="@+id/balanceImageView"
+        app:layout_constraintStart_toEndOf="@+id/balanceImageView"
+        app:layout_constraintTop_toTopOf="@+id/balanceImageView" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/balanceImageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_arrow"
+        android:backgroundTint="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/balanceImageView"
+        app:layout_constraintEnd_toEndOf="@+id/uploadButton"
+        app:layout_constraintTop_toTopOf="@+id/balanceImageView" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/historyImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_16dp"
+        android:src="@drawable/ic_trade"
+        app:layout_constraintStart_toStartOf="@+id/balanceImageView"
+        app:layout_constraintTop_toBottomOf="@+id/balanceImageView" />
+
+    <TextView
+        android:id="@+id/historyTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_8dp"
+        android:text="@string/history"
+        android:textColor="@color/trade_info_text_black"
+        android:textSize="@dimen/trade_info_text_size"
+        app:layout_constraintBottom_toBottomOf="@+id/historyImageView"
+        app:layout_constraintStart_toEndOf="@+id/historyImageView"
+        app:layout_constraintTop_toTopOf="@+id/historyImageView" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/historyImageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_arrow"
+        android:backgroundTint="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/historyImageView"
+        app:layout_constraintEnd_toEndOf="@+id/uploadButton"
+        app:layout_constraintTop_toTopOf="@+id/historyImageView" />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

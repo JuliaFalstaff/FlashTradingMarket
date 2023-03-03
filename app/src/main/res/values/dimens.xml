@@ -14,4 +14,10 @@
     <dimen name="logo_sign_in">12sp</dimen>
     <dimen name="margin_16dp">16dp</dimen>
     <dimen name="margin_top_sing_in_24dp">24dp</dimen>
+    <dimen name="profile_title">16sp</dimen>
+    <dimen name="change_photo_text_size">11sp</dimen>
+    <dimen name="profile_name_size">16sp</dimen>
+    <dimen name="margin_32dp">32dp</dimen>
+    <dimen name="upload_button_text_size">14sp</dimen>
+    <dimen name="trade_info_text_size">14sp</dimen>
 </resources>
