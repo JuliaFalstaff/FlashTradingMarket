@@ -7,4 +7,14 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+
+    <color name="sign_in_dark">#161826</color>
+    <color name="already_have_acc_light_grey">#808080</color>
+    <color name="log_in_deep_blue">#254FE6</color>
+    <color name="sig_in_button_color">#4E55D7</color>
+    <color name="white_color">#EAEAEA</color>
+    <color name="edit_text_form_grey">#7B7B7B</color>
+    <color name="background_form_dark_grey_sign_in">"#E8E8E8"</color>
+    <color name="logo_text_sign_in_black">#000000</color>
 </resources>
