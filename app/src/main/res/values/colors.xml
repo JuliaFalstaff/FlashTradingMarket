@@ -9,7 +9,7 @@
     <color name="white">#FFFFFFFF</color>
 
 
-    <color name="sign_in_dark">#161826</color>
+    <color name="authorization_dark">#161826</color>
     <color name="already_have_acc_light_grey">#808080</color>
     <color name="log_in_deep_blue">#254FE6</color>
     <color name="sig_in_button_color">#4E55D7</color>
