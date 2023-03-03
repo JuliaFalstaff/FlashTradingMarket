@@ -59,6 +59,7 @@
         android:textStyle="bold"
         app:icon="@drawable/ic_share"
         app:iconGravity="textStart"
+        app:iconPadding="@dimen/margin_32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profileNameTextView" />
@@ -89,8 +90,8 @@
         android:id="@+id/storeImageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_arrow"
         android:backgroundTint="@color/white"
+        android:src="@drawable/ic_arrow"
         app:layout_constraintBottom_toBottomOf="@+id/storeImageView"
         app:layout_constraintEnd_toEndOf="@+id/uploadButton"
         app:layout_constraintTop_toTopOf="@+id/storeImageView" />
@@ -120,8 +121,8 @@
         android:id="@+id/paymentImageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_arrow"
         android:backgroundTint="@color/white"
+        android:src="@drawable/ic_arrow"
         app:layout_constraintBottom_toBottomOf="@+id/paymentImageView"
         app:layout_constraintEnd_toEndOf="@+id/uploadButton"
         app:layout_constraintTop_toTopOf="@+id/paymentImageView" />
@@ -147,15 +148,16 @@
         app:layout_constraintStart_toEndOf="@+id/balanceImageView"
         app:layout_constraintTop_toTopOf="@+id/balanceImageView" />
 
-    <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/balanceImageButton"
+    <TextView
+        android:id="@+id/balanceAccountTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_arrow"
-        android:backgroundTint="@color/white"
+        android:textColor="@color/trade_info_text_black"
+        android:textSize="@dimen/trade_info_text_size"
         app:layout_constraintBottom_toBottomOf="@+id/balanceImageView"
         app:layout_constraintEnd_toEndOf="@+id/uploadButton"
-        app:layout_constraintTop_toTopOf="@+id/balanceImageView" />
+        app:layout_constraintTop_toTopOf="@+id/balanceImageView"
+        tools:text="$ 1593" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/historyImageView"
@@ -182,13 +184,83 @@
         android:id="@+id/historyImageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_arrow"
         android:backgroundTint="@color/white"
+        android:src="@drawable/ic_arrow"
         app:layout_constraintBottom_toBottomOf="@+id/historyImageView"
         app:layout_constraintEnd_toEndOf="@+id/uploadButton"
         app:layout_constraintTop_toTopOf="@+id/historyImageView" />
 
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/restoreImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_16dp"
+        android:src="@drawable/ic_restore"
+        app:layout_constraintStart_toStartOf="@+id/historyImageView"
+        app:layout_constraintTop_toBottomOf="@+id/historyImageView" />
 
+    <TextView
+        android:id="@+id/restoreTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_8dp"
+        android:text="@string/restore_purchase"
+        android:textColor="@color/trade_info_text_black"
+        android:textSize="@dimen/trade_info_text_size"
+        app:layout_constraintBottom_toBottomOf="@+id/restoreImageView"
+        app:layout_constraintStart_toEndOf="@+id/restoreImageView"
+        app:layout_constraintTop_toTopOf="@+id/restoreImageView" />
 
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/restoreImageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:src="@drawable/ic_arrow"
+        app:layout_constraintBottom_toBottomOf="@+id/restoreImageView"
+        app:layout_constraintEnd_toEndOf="@+id/uploadButton"
+        app:layout_constraintTop_toTopOf="@+id/restoreImageView" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/helpImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_16dp"
+        android:src="@drawable/ic_help"
+        app:layout_constraintStart_toStartOf="@+id/restoreImageView"
+        app:layout_constraintTop_toBottomOf="@+id/restoreImageView" />
+
+    <TextView
+        android:id="@+id/helpTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_8dp"
+        android:text="@string/help"
+        android:textColor="@color/trade_info_text_black"
+        android:textSize="@dimen/trade_info_text_size"
+        app:layout_constraintBottom_toBottomOf="@+id/helpImageView"
+        app:layout_constraintStart_toEndOf="@+id/helpImageView"
+        app:layout_constraintTop_toTopOf="@+id/helpImageView" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/logoutImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_16dp"
+        android:src="@drawable/ic_logout"
+        app:layout_constraintStart_toStartOf="@+id/helpImageView"
+        app:layout_constraintTop_toBottomOf="@+id/helpImageView" />
+
+    <TextView
+        android:id="@+id/logoutTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_8dp"
+        android:text="@string/logout"
+        android:textColor="@color/trade_info_text_black"
+        android:textSize="@dimen/trade_info_text_size"
+        app:layout_constraintBottom_toBottomOf="@+id/logoutImageView"
+        app:layout_constraintStart_toEndOf="@+id/logoutImageView"
+        app:layout_constraintTop_toTopOf="@+id/logoutImageView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
