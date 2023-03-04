@@ -27,5 +27,6 @@
     <color name="query_hint">#5B5B5B</color>
     <color name="latest_title">#040402</color>
     <color name="view_all_text">#808080</color>
+    <color name="item_category">#070604</color>
 
 </resources>
