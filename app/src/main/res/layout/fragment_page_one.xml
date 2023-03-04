@@ -177,7 +177,8 @@
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/flashTitleTextView" />
+            app:layout_constraintTop_toBottomOf="@+id/flashTitleTextView"
+            tools:listitem="@layout/item_flash_sale_rv"/>
 
         <TextView
             android:id="@+id/brandsTitleTextView"
