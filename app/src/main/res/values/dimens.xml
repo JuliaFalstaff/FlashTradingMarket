@@ -21,4 +21,9 @@
     <dimen name="upload_button_text_size">14sp</dimen>
     <dimen name="trade_info_text_size">14sp</dimen>
     <dimen name="default_form_height">29dp</dimen>
+    <dimen name="padding_32dp">32dp</dimen>
+    <dimen name="location_size">11sp</dimen>
+    <dimen name="padding_4dp">4dp</dimen>
+    <dimen name="latest_title_size">16sp</dimen>
+    <dimen name="view_all_size">11sp</dimen>
 </resources>

@@ -22,5 +22,10 @@
     <color name="back">"#CDCBC7"</color>
     <color name="icon_tint">#909090</color>
     <color name="toggle_icon">#5C5C5C</color>
+    <color name="location_text">#5B5B5B</color>
+    <color name="searchview_light_grey">#F5F6F7</color>
+    <color name="query_hint">#5B5B5B</color>
+    <color name="latest_title">#040402</color>
+    <color name="view_all_text">#808080</color>
 
 </resources>
