@@ -20,4 +20,5 @@
     <dimen name="margin_32dp">32dp</dimen>
     <dimen name="upload_button_text_size">14sp</dimen>
     <dimen name="trade_info_text_size">14sp</dimen>
+    <dimen name="default_form_height">29dp</dimen>
 </resources>
