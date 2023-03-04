@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/toolbarLayout"
+        layout="@layout/toolbar_layout" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/productPictureDetailImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarLayout"
+        tools:src="@tools:sample/avatars" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_32dp"
+        android:background="@drawable/background_detail_info"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@+id/productPictureDetailImageView"
+        app:layout_constraintEnd_toEndOf="@+id/productPictureDetailImageView"
+        app:layout_constraintStart_toEndOf="@+id/productPictureDetailImageView">
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_like_info" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_line" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_share" />
+    </LinearLayout>
+
+    <org.imaginativeworld.whynotimagecarousel.ImageCarousel
+        android:id="@+id/imageCarousel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/productPictureDetailImageView" />
+
+    <TextView
+        android:id="@+id/productNameInfoTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_16dp"
+        android:layout_marginTop="@dimen/margin_16dp"
+        android:textColor="@color/info_name"
+        android:textSize="@dimen/name_info_text_size"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageCarousel"
+        tools:text="New Balance" />
+
+    <TextView
+        android:id="@+id/productPriceInfoTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_16dp"
+        android:textColor="@color/info_price"
+        android:textSize="@dimen/info_price_text_size"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/productNameInfoTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/productNameInfoTextView"
+        tools:text="$ 22,50" />
+
+    <TextView
+        android:id="@+id/productCategoryInfoTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/info_name"
+        android:textSize="@dimen/name_info_text_size"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/productNameInfoTextView"
+        app:layout_constraintTop_toBottomOf="@+id/productNameInfoTextView"
+        tools:text="Sneakers" />
+
+    <TextView
+        android:id="@+id/productDescriptionInfoTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_8dp"
+        android:layout_marginEnd="@dimen/margin_32dp"
+        android:textColor="@color/info_description"
+        android:textSize="@dimen/description_info_text_size"
+        app:layout_constraintEnd_toStartOf="@+id/productPriceInfoTextView"
+        app:layout_constraintStart_toStartOf="@+id/productCategoryInfoTextView"
+        app:layout_constraintTop_toBottomOf="@+id/productCategoryInfoTextView"
+        tools:text="Features waterproof, fire, air resistant shoes. all changed when the country of fire attacked" />
+
+    <TextView
+        android:id="@+id/ratingTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_8dp"
+        android:drawablePadding="@dimen/padding_4dp"
+        android:textColor="@color/info_rating"
+        android:textSize="@dimen/info_rating_text_size"
+        android:textStyle="bold"
+        app:drawableStartCompat="@drawable/ic_rating"
+        app:layout_constraintStart_toStartOf="@+id/productDescriptionInfoTextView"
+        app:layout_constraintTop_toBottomOf="@+id/productDescriptionInfoTextView"
+        tools:text="3.9" />
+
+    <TextView
+        android:id="@+id/reviewTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_4dp"
+        android:textColor="@color/info_review"
+        android:textSize="@dimen/review_text_size"
+        app:layout_constraintBottom_toBottomOf="@+id/ratingTextView"
+        app:layout_constraintStart_toEndOf="@id/ratingTextView"
+        app:layout_constraintTop_toTopOf="@+id/ratingTextView"
+        tools:text="(4000 reviews)" />
+
+    <TextView
+        android:id="@+id/colorTitleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_8dp"
+        android:textColor="@color/color_title"
+        android:textSize="@dimen/color_title_text_size"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/ratingTextView"
+        app:layout_constraintTop_toBottomOf="@+id/ratingTextView"
+        tools:text="Color:" />
+
+    <RadioGroup
+        android:id="@+id/colorRadioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_8dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="@+id/colorTitleTextView"
+        app:layout_constraintTop_toBottomOf="@+id/colorTitleTextView">
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/colorOne"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_color_white"
+            android:button="@android:color/transparent"
+            android:checked="true" />
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/colorTwo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_8dp"
+            android:background="@drawable/background_color_grey"
+            android:button="@android:color/transparent" />
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/colorThree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_8dp"
+            android:background="@drawable/background_color_dark"
+            android:button="@android:color/transparent" />
+    </RadioGroup>
+
+    <include
+        android:id="@+id/totalInfoCardView"
+        layout="@layout/total_info_cardview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/margin_24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/colorRadioGroup" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -31,4 +31,14 @@
     <dimen name="item_name_text_size">12sp</dimen>
     <dimen name="margin_4dp">4dp</dimen>
     <dimen name="item_sale_text_size">11sp</dimen>
+    <dimen name="name_info_text_size">16sp</dimen>
+    <dimen name="margin_24dp">24dp</dimen>
+    <dimen name="info_price_text_size">13sp</dimen>
+    <dimen name="description_info_text_size">11sp</dimen>
+    <dimen name="info_rating_text_size">11sp</dimen>
+    <dimen name="review_text_size">11sp</dimen>
+    <dimen name="color_title_text_size">11sp</dimen>
+    <dimen name="quantity_text_size">11sp</dimen>
+    <dimen name="total_price_text_size">11sp</dimen>
+    <dimen name="add_to_card_text_size">11sp</dimen>
 </resources>

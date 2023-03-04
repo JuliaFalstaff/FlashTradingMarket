@@ -19,4 +19,5 @@
         <item name="hintTextColor">@color/query_hint</item>
         <item name="android:textColorHint">@color/query_hint</item>
     </style>
+
 </resources>
