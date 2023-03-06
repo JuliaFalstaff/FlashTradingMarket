@@ -77,7 +77,7 @@ class SignInFragment : Fragment() {
                     }
                 }
                 is AppState.ErrorMessage -> {
-                    Toast.makeText(requireActivity(), "Error", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireActivity(), "Error: ${it.errorMessage}", Toast.LENGTH_SHORT).show()
                 }
             }
         }
@@ -98,7 +98,7 @@ class SignInFragment : Fragment() {
         lastName: String
     ) {
         if (email.isEmailValid() && firstName.isNotEmpty() && lastName.isNotEmpty()) {
-            viewModel.saveNewUser(UserProfile(firstName, lastName, email))
+            viewModel.checkUser(UserProfile(firstName, lastName, email))
             Log.d("VVV", "saved")
         } else {
             showError(email.isEmailValid())

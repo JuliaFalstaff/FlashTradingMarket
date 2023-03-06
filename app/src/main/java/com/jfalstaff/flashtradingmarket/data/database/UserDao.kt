@@ -13,4 +13,7 @@ interface UserDao {
 
     @Query("SELECT * FROM user_profile WHERE firstName =:name ")
     suspend fun getUserProfile(name: String): UserProfileDbModel
+
+    @Query("SELECT EXISTS(SELECT * FROM user_profile WHERE firstName = :name)")
+    suspend fun checkIsUserExist(name: String): Boolean
 }

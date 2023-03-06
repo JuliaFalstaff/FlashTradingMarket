@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.jfalstaff.flashtradingmarket.domain.AppState
 import com.jfalstaff.flashtradingmarket.domain.entity.UserProfile
+import com.jfalstaff.flashtradingmarket.domain.usecases.CheckUserUseCase
 import com.jfalstaff.flashtradingmarket.domain.usecases.GetSavedUserUseCase
 import com.jfalstaff.flashtradingmarket.domain.usecases.SignInNewUserUseCase
 import com.jfalstaff.flashtradingmarket.utils.ALREADY_HAVE_ANN_ACCOUNT
@@ -16,7 +17,7 @@ import javax.inject.Inject
 
 class SignInViewModel @Inject constructor(
     private val signInNewUserUseCase: SignInNewUserUseCase,
-    private val getSavedUserUseCase: GetSavedUserUseCase
+    private val checkUserUseCase: CheckUserUseCase
 ) : ViewModel() {
 
     private var _newUser: MutableLiveData<AppState> = MutableLiveData()
@@ -31,6 +32,19 @@ class SignInViewModel @Inject constructor(
                 _newUser.value = AppState.ErrorMessage(SAVING_USER_ERROR)
             }
         }
+    }
+
+     fun checkUser(userProfile: UserProfile) {
+        viewModelScope.launch {
+
+
+            if(!checkUserUseCase(userProfile.firstName)) {
+                saveNewUser(userProfile)
+            } else {
+                _newUser.value = AppState.ErrorMessage(ALREADY_HAVE_ANN_ACCOUNT)
+            }
+        }
+
     }
 
 //    fun addNewUser(userProfile: UserProfile) {

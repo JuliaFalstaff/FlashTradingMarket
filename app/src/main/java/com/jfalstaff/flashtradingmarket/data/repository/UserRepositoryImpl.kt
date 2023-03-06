@@ -18,4 +18,8 @@ class UserRepositoryImpl @Inject constructor(
     override suspend fun getUserProfile(name: String): UserProfile {
         return userMapper.mapUserDbModelToEntity(userDao.getUserProfile(name))
     }
+
+    override suspend fun checkIsUserExist(name: String): Boolean {
+        return userDao.checkIsUserExist(name)
+    }
 }
