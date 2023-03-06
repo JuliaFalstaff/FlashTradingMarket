@@ -7,7 +7,7 @@
     tools:context=".presentation.login.MainActivity">
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/authContainer"
+        android:id="@+id/container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -15,6 +15,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:layout_gravity="bottom"
+        app:itemIconTint="@color/icon_tint"
+        app:labelVisibilityMode="unlabeled"
+        app:itemBackground="@drawable/background_item_bottom_nav"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/menu_bottom_nav_view" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

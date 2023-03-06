@@ -1,8 +1,8 @@
 package com.jfalstaff.flashtradingmarket.di
 
 import androidx.lifecycle.ViewModel
-import com.jfalstaff.flashtradingmarket.presentation.LoginViewModel
-import com.jfalstaff.flashtradingmarket.presentation.SignInViewModel
+import com.jfalstaff.flashtradingmarket.presentation.login.LoginViewModel
+import com.jfalstaff.flashtradingmarket.presentation.login.SignInViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap

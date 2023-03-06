@@ -21,7 +21,9 @@ interface DataModule {
 
         @ApplicationScope
         @Provides
-        fun provideDataBase(application: Application): UserDao {
+        fun provideDataBase(
+            application: Application
+        ): UserDao {
             return Room.databaseBuilder(
                 application,
                 UserDataBase::class.java,

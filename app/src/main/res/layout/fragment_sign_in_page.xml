@@ -39,7 +39,7 @@
         app:layout_constraintTop_toBottomOf="@+id/signInTextView" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/appCompatButton"
+        android:id="@+id/signInButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_sing_in_32dp"
@@ -98,7 +98,7 @@
         android:textColor="@color/light_grey"
         android:textSize="@dimen/already_have_size"
         app:layout_constraintBottom_toBottomOf="@+id/log_in_text_view"
-        app:layout_constraintStart_toStartOf="@+id/appCompatButton"
+        app:layout_constraintStart_toStartOf="@+id/signInButton"
         app:layout_constraintTop_toTopOf="@+id/log_in_text_view" />
 
     <TextView
@@ -111,7 +111,7 @@
         android:textColor="@color/log_in_deep_blue"
         android:textSize="@dimen/log_in_acc_size"
         app:layout_constraintStart_toEndOf="@+id/already_have_login_text_view"
-        app:layout_constraintTop_toBottomOf="@+id/appCompatButton" />
+        app:layout_constraintTop_toBottomOf="@+id/signInButton" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/googleLogoImageView"
