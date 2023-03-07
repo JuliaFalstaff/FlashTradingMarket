@@ -43,7 +43,7 @@ class ProfileActivity : AppCompatActivity() {
                     true
                 }
                 R.id.menu_item_profile -> {
-                    //TODO
+                    openFragment(ProfileFragment.newInstance())
                     true
                 }
                 else -> false

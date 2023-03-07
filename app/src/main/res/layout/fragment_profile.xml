@@ -6,9 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <include
-        android:id="@+id/toolbarLayout"
-        layout="@layout/toolbar_layout" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/profileAvatarImageView"
@@ -17,7 +14,7 @@
         android:src="@drawable/sample_avatar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbarLayout" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/changePhotoTextView"
