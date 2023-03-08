@@ -43,10 +43,13 @@ class PageOneFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getLatest()
         viewModel.latest.observe(viewLifecycleOwner) {
-            Log.d("VVV latest", it.latest.first().name)
+            Log.d("VVV latest", it.latest.toString())
         }
+        viewModel.flashSale.observe(viewLifecycleOwner) {
+            Log.d("VVV flash", it.flashSaleDto.toString())
+        }
+        viewModel.getAllData()
     }
 
     companion object {
