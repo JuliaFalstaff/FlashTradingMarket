@@ -1,4 +1,4 @@
-package com.jfalstaff.flashtradingmarket.presentation.pageOne
+package com.jfalstaff.flashtradingmarket.presentation.pageTwo
 
 import android.content.Context
 import android.os.Bundle
@@ -9,19 +9,16 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.jfalstaff.flashtradingmarket.TradeMarketApp
-import com.jfalstaff.flashtradingmarket.databinding.FragmentPageOneBinding
+import com.jfalstaff.flashtradingmarket.databinding.FragmentPageTwoBinding
 import com.jfalstaff.flashtradingmarket.presentation.ViewModelFactory
+import com.jfalstaff.flashtradingmarket.presentation.pageOne.PageOneViewModel
 import javax.inject.Inject
 
-class PageOneFragment: Fragment() {
+class PageTwoFragment: Fragment() {
 
-    private var _binding: FragmentPageOneBinding? = null
+    private var _binding: FragmentPageTwoBinding? = null
     private val binding get() = _binding!!
-    @Inject
-    lateinit var viewModelFactory: ViewModelFactory
-    private val viewModel by lazy {
-        ViewModelProvider(requireActivity(), viewModelFactory)[PageOneViewModel::class.java]
-    }
+
 
     private val component by lazy {
         (requireActivity().application as TradeMarketApp).component
@@ -37,19 +34,16 @@ class PageOneFragment: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentPageOneBinding.inflate(inflater, container, false)
+        _binding = FragmentPageTwoBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getLatest()
-        viewModel.latest.observe(viewLifecycleOwner) {
-            Log.d("VVV latest", it.latest.first().name)
-        }
+
     }
 
     companion object {
-        fun newInstance() = PageOneFragment()
+        fun newInstance() = PageTwoFragment()
     }
 }
