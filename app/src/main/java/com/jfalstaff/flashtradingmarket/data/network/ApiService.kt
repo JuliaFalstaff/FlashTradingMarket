@@ -1,5 +1,6 @@
 package com.jfalstaff.flashtradingmarket.data.network
 
+import com.jfalstaff.flashtradingmarket.data.network.dto.FlashSaleListDto
 import com.jfalstaff.flashtradingmarket.data.network.dto.LatestDto
 import retrofit2.http.GET
 
@@ -9,6 +10,6 @@ interface ApiService {
     suspend fun getLatestGoods(): LatestDto
 
     @GET("v3/a9ceeb6e-416d-4352-bde6-2203416576ac")
-    suspend fun getFlashSale()
+    suspend fun getFlashSale(): FlashSaleListDto
 
 }

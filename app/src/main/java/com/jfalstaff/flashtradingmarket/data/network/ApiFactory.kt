@@ -7,10 +7,10 @@ object ApiFactory {
 
     private const val BASE_URL = "https://run.mocky.io/"
 
-    val retrofitLates = Retrofit.Builder()
+    val retrofit = Retrofit.Builder()
         .baseUrl(BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
-    val api = retrofitLates.create(ApiService::class.java)
+    val api = retrofit.create(ApiService::class.java)
 }
