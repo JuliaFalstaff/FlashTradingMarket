@@ -6,22 +6,25 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.jfalstaff.flashtradingmarket.R
+import com.bumptech.glide.Glide
 import com.jfalstaff.flashtradingmarket.TradeMarketApp
 import com.jfalstaff.flashtradingmarket.databinding.FragmentPageTwoBinding
+import com.jfalstaff.flashtradingmarket.domain.entity.DetailInfo
 import com.jfalstaff.flashtradingmarket.presentation.ViewModelFactory
-import com.jfalstaff.flashtradingmarket.presentation.pageOne.PageOneViewModel
 import javax.inject.Inject
 
-class PageTwoFragment: Fragment() {
+class PageTwoFragment : Fragment() {
 
     private var _binding: FragmentPageTwoBinding? = null
     private val binding get() = _binding!!
 
-
+    @Inject
+    lateinit var viewModelFactory: ViewModelFactory
+    private val viewModel by lazy {
+        ViewModelProvider(requireActivity(), viewModelFactory)[PageTwoViewModel::class.java]
+    }
     private val component by lazy {
         (requireActivity().application as TradeMarketApp).component
     }
@@ -42,7 +45,45 @@ class PageTwoFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        observeData()
+        changeTotalInfo()
+    }
 
+    private fun changeTotalInfo() {
+        viewModel.count.observe(viewLifecycleOwner) {
+            binding.quantityTextView.text = "Quantity: $it"
+        }
+
+        binding.addButton.setOnClickListener {
+            viewModel.addItem()
+        }
+        binding.deleteButton.setOnClickListener {
+            viewModel.deleteItem()
+        }
+
+        viewModel.total.observe(viewLifecycleOwner) {
+            binding.totalPriceTextView.text = it.toString()
+            Log.d("VVV price", it.toString())
+        }
+
+    }
+
+    private fun observeData() {
+        viewModel.detailInfo.observe(viewLifecycleOwner) { info ->
+            renderData(info)
+            viewModel.getItemPrice(info.price)
+        }
+    }
+
+    private fun renderData(detailInfo: DetailInfo) = with(binding) {
+        productDescriptionInfoTextView.text = detailInfo.description
+        productNameInfoTextView.text = detailInfo.name
+        productPriceInfoTextView.text = detailInfo.price.toString()
+        Glide.with(requireActivity())
+            .load(detailInfo.imageUrls.first())
+            .into(productPictureDetailImageView)
+        ratingTextView.text = detailInfo.rating.toString()
+        reviewTextView.text = detailInfo.numberOfReviews.toString()
     }
 
     companion object {

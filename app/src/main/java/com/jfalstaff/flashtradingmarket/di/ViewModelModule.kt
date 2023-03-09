@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import com.jfalstaff.flashtradingmarket.presentation.login.LoginViewModel
 import com.jfalstaff.flashtradingmarket.presentation.login.SignInViewModel
 import com.jfalstaff.flashtradingmarket.presentation.pageOne.PageOneViewModel
+import com.jfalstaff.flashtradingmarket.presentation.pageTwo.PageTwoViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -25,4 +26,9 @@ interface ViewModelModule {
     @IntoMap
     @ViewModelKey(PageOneViewModel::class)
     fun bindPageOneViewModel(pageOneViewModel: PageOneViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(PageTwoViewModel::class)
+    fun bindPageTwoViewModel(pageTwoViewModel: PageTwoViewModel): ViewModel
 }

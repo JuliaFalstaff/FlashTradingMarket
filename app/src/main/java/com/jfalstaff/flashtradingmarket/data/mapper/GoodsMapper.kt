@@ -1,13 +1,7 @@
 package com.jfalstaff.flashtradingmarket.data.mapper
 
-import com.jfalstaff.flashtradingmarket.data.network.dto.FlashSaleDto
-import com.jfalstaff.flashtradingmarket.data.network.dto.FlashSaleListDto
-import com.jfalstaff.flashtradingmarket.data.network.dto.LatestDto
-import com.jfalstaff.flashtradingmarket.data.network.dto.LatestGoodsDto
-import com.jfalstaff.flashtradingmarket.domain.entity.FlashSale
-import com.jfalstaff.flashtradingmarket.domain.entity.FlashSaleList
-import com.jfalstaff.flashtradingmarket.domain.entity.Latest
-import com.jfalstaff.flashtradingmarket.domain.entity.LatestGoods
+import com.jfalstaff.flashtradingmarket.data.network.dto.*
+import com.jfalstaff.flashtradingmarket.domain.entity.*
 import javax.inject.Inject
 
 class GoodsMapper @Inject constructor() {
@@ -45,6 +39,18 @@ class GoodsMapper @Inject constructor() {
                 price = it.price
             )
         }
+    }
+
+    fun mapDetailInfoDtoToEntity(info: DetailInfoDto): DetailInfo {
+        return DetailInfo(
+            colors = info.colors,
+            description = info.description,
+            imageUrls = info.imageUrls,
+            name = info.name,
+            numberOfReviews = info.numberOfReviews,
+            price = info.price,
+            rating = info.rating
+        )
     }
 
 }

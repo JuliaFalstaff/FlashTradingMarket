@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment
 import com.jfalstaff.flashtradingmarket.R
 import com.jfalstaff.flashtradingmarket.databinding.FragmentProfileBinding
 import com.jfalstaff.flashtradingmarket.presentation.login.MainActivity
+import org.imaginativeworld.whynotimagecarousel.utils.setImage
 
 class ProfileFragment : Fragment() {
 
@@ -23,7 +24,7 @@ class ProfileFragment : Fragment() {
         activity?.findViewById<TextView>(R.id.toolbarTitleTextView)?.text =
             getString(R.string.profile)
         activity?.findViewById<ImageView>(R.id.avatarAppbarImageView)?.visibility = View.GONE
-        activity?.findViewById<ImageView>(R.id.menuImageView)?.visibility = View.GONE
+        activity?.findViewById<ImageView>(R.id.menuImageView)?.setImageResource(R.drawable.ic_arrow_back)
         super.onAttach(context)
     }
 
