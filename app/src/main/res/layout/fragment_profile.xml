@@ -6,7 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/profileAvatarImageView"
         android:layout_width="wrap_content"
@@ -39,7 +38,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/changePhotoTextView"
-        tools:text="@string/profile_name" />
+        android:text="@string/profile_name" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/uploadButton"

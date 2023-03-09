@@ -26,9 +26,9 @@
     <dimen name="padding_4dp">4dp</dimen>
     <dimen name="latest_title_size">16sp</dimen>
     <dimen name="view_all_size">11sp</dimen>
-    <dimen name="item_category_text_size">11sp</dimen>
-    <dimen name="item_price_text_size">11sp</dimen>
-    <dimen name="item_name_text_size">12sp</dimen>
+    <dimen name="item_category_text_size">8sp</dimen>
+    <dimen name="item_price_text_size">8sp</dimen>
+    <dimen name="item_name_text_size">8sp</dimen>
     <dimen name="margin_4dp">4dp</dimen>
     <dimen name="item_sale_text_size">11sp</dimen>
     <dimen name="name_info_text_size">16sp</dimen>
@@ -41,4 +41,5 @@
     <dimen name="quantity_text_size">11sp</dimen>
     <dimen name="total_price_text_size">11sp</dimen>
     <dimen name="add_to_card_text_size">11sp</dimen>
+    <dimen name="search_view_text_size">8sp</dimen>
 </resources>

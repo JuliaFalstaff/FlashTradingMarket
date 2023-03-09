@@ -31,7 +31,7 @@ class GoodsMapper @Inject constructor() {
 
     fun mapFlashSaleListDtoToEntity(flashSaleListDto: FlashSaleListDto): FlashSaleList {
         return FlashSaleList(
-            flashSaleDto = mapFlashSaleDtoToEntity(flashSaleListDto.flashSaleDto)
+            flashSale = mapFlashSaleDtoToEntity(flashSaleListDto.flashSaleDto)
         )
     }
 

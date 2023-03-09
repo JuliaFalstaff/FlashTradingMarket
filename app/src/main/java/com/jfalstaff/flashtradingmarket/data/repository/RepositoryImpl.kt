@@ -17,6 +17,6 @@ class RepositoryImpl @Inject constructor(
     }
 
     override suspend fun getFlashSale(): FlashSaleList {
-        return  goodsMapper.mapFlashSaleListDtoToEntity(apiService.getFlashSale())
+        return goodsMapper.mapFlashSaleListDtoToEntity(apiService.getFlashSale())
     }
 }

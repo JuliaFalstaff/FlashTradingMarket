@@ -5,5 +5,5 @@ import com.google.gson.annotations.SerializedName
 
 data class FlashSaleList(
     @SerializedName("flash_sale")
-    val flashSaleDto: List<FlashSale>
+    val flashSale: List<FlashSale>
 )

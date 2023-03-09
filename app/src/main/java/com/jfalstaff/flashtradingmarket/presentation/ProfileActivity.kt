@@ -16,6 +16,8 @@ class ProfileActivity : AppCompatActivity() {
         _binding = ActivityProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initBottomNavigation()
+        setSupportActionBar(binding.toolbarLayout.toolbar)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.container, PageOneFragment.newInstance())
