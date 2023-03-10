@@ -18,11 +18,11 @@ class ProfileFragment : Fragment() {
 
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
-    private lateinit var onLogoutAndFinishListener: OnLogoutAndFinishListener
+    private lateinit var onLogoutAndFinishListener: IOnLogoutAndFinishListener
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        if (context is OnLogoutAndFinishListener) {
+        if (context is IOnLogoutAndFinishListener) {
             onLogoutAndFinishListener = context
         } else {
             throw RuntimeException(getString(R.string.activity_must_implement_listener))
@@ -84,11 +84,6 @@ class ProfileFragment : Fragment() {
     override fun onDestroyView() {
         _binding = null
         super.onDestroyView()
-    }
-
-    interface OnLogoutAndFinishListener {
-        fun onLogoutAndFinish()
-        fun backToolbarListener()
     }
 
     companion object {

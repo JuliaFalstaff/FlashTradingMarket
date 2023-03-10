@@ -6,9 +6,10 @@ import androidx.fragment.app.Fragment
 import com.jfalstaff.flashtradingmarket.R
 import com.jfalstaff.flashtradingmarket.databinding.ActivityProfileBinding
 import com.jfalstaff.flashtradingmarket.presentation.pageOne.PageOneFragment
+import com.jfalstaff.flashtradingmarket.presentation.profile.IOnLogoutAndFinishListener
 import com.jfalstaff.flashtradingmarket.presentation.profile.ProfileFragment
 
-class ProfileActivity : AppCompatActivity(), ProfileFragment.OnLogoutAndFinishListener {
+class ProfileActivity : AppCompatActivity(), IOnLogoutAndFinishListener {
     private var _binding: ActivityProfileBinding? = null
     private val binding get() = _binding!!
 

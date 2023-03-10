@@ -6,19 +6,24 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
+import com.jfalstaff.flashtradingmarket.R
 import com.jfalstaff.flashtradingmarket.TradeMarketApp
 import com.jfalstaff.flashtradingmarket.databinding.FragmentPageTwoBinding
 import com.jfalstaff.flashtradingmarket.domain.entity.DetailInfo
 import com.jfalstaff.flashtradingmarket.presentation.ViewModelFactory
+import com.jfalstaff.flashtradingmarket.presentation.profile.IOnLogoutAndFinishListener
 import javax.inject.Inject
 
 class PageTwoFragment : Fragment() {
 
     private var _binding: FragmentPageTwoBinding? = null
     private val binding get() = _binding!!
+    private lateinit var onLogoutAndFinishListener: IOnLogoutAndFinishListener
 
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
@@ -32,6 +37,19 @@ class PageTwoFragment : Fragment() {
     override fun onAttach(context: Context) {
         component.inject(this)
         super.onAttach(context)
+        if (context is IOnLogoutAndFinishListener) {
+            onLogoutAndFinishListener = context
+        } else {
+            throw RuntimeException(getString(R.string.activity_must_implement_listener))
+        }
+        setCustomToolbar()
+    }
+
+    private fun setCustomToolbar() {
+        activity?.findViewById<ImageView>(R.id.avatarAppbarImageView)?.visibility = View.GONE
+        activity?.findViewById<TextView>(R.id.locationTextView)?.visibility = View.GONE
+        activity?.findViewById<ImageView>(R.id.menuImageView)
+            ?.setImageResource(R.drawable.ic_arrow_back)
     }
 
     override fun onCreateView(
@@ -47,6 +65,7 @@ class PageTwoFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         observeData()
         changeTotalInfo()
+        setBackToolbarClickListener()
     }
 
     private fun changeTotalInfo() {
@@ -65,7 +84,6 @@ class PageTwoFragment : Fragment() {
             binding.totalPriceTextView.text = it.toString()
             Log.d("VVV price", it.toString())
         }
-
     }
 
     private fun observeData() {
@@ -84,6 +102,12 @@ class PageTwoFragment : Fragment() {
             .into(productPictureDetailImageView)
         ratingTextView.text = detailInfo.rating.toString()
         reviewTextView.text = detailInfo.numberOfReviews.toString()
+    }
+
+    private fun setBackToolbarClickListener() {
+        requireActivity().findViewById<ImageView>(R.id.menuImageView).setOnClickListener {
+            onLogoutAndFinishListener.backToolbarListener()
+        }
     }
 
     companion object {
