@@ -30,6 +30,8 @@ class ProfileFragment : Fragment() {
         activity?.findViewById<TextView>(R.id.toolbarTitleTextView)?.text =
             getString(R.string.profile)
         activity?.findViewById<ImageView>(R.id.avatarAppbarImageView)?.visibility = View.GONE
+        activity?.findViewById<TextView>(R.id.locationTextView)?.visibility = View.GONE
+//        activity?.findViewById<ImageView>(R.id.arrowDownImageView)?.visibility = View.GONE
         activity?.findViewById<ImageView>(R.id.menuImageView)
             ?.setImageResource(R.drawable.ic_arrow_back)
     }
