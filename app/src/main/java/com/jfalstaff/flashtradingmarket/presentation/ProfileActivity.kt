@@ -2,12 +2,14 @@ package com.jfalstaff.flashtradingmarket.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import com.jfalstaff.flashtradingmarket.R
 import com.jfalstaff.flashtradingmarket.databinding.ActivityProfileBinding
 import com.jfalstaff.flashtradingmarket.presentation.pageOne.PageOneFragment
+import com.jfalstaff.flashtradingmarket.presentation.profile.ProfileFragment
 
-class ProfileActivity : AppCompatActivity() {
+class ProfileActivity : AppCompatActivity(), ProfileFragment.OnLogoutAndFinishListener {
     private var _binding: ActivityProfileBinding? = null
     private val binding get() = _binding!!
 
@@ -58,5 +60,10 @@ class ProfileActivity : AppCompatActivity() {
             .replace(R.id.container, fragment)
             .addToBackStack(null)
             .commit()
+    }
+
+    override fun onLogoutAndFinish() {
+        finish()
+        Log.d("VVV Activity", "finished")
     }
 }

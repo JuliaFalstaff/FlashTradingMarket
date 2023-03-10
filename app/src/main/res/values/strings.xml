@@ -36,5 +36,6 @@
     <string name="add_to_cart">ADD TO CART</string>
     <string name="discount_template">%s% off</string>
     <string name="page_one_title_toolbar">Trade by bata</string>
+    <string name="activity_must_implement_listener">Activity must implement listener</string>
 
 </resources>

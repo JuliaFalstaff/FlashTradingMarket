@@ -1,4 +1,4 @@
-package com.jfalstaff.flashtradingmarket.presentation
+package com.jfalstaff.flashtradingmarket.presentation.profile
 
 import android.content.Context
 import android.content.Intent
@@ -13,19 +13,25 @@ import androidx.fragment.app.Fragment
 import com.jfalstaff.flashtradingmarket.R
 import com.jfalstaff.flashtradingmarket.databinding.FragmentProfileBinding
 import com.jfalstaff.flashtradingmarket.presentation.login.MainActivity
-import org.imaginativeworld.whynotimagecarousel.utils.setImage
 
 class ProfileFragment : Fragment() {
 
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
+    private lateinit var onLogoutAndFinishListener: OnLogoutAndFinishListener
 
     override fun onAttach(context: Context) {
+        super.onAttach(context)
+        if (context is OnLogoutAndFinishListener) {
+            onLogoutAndFinishListener = context
+        } else {
+            throw RuntimeException(getString(R.string.activity_must_implement_listener))
+        }
         activity?.findViewById<TextView>(R.id.toolbarTitleTextView)?.text =
             getString(R.string.profile)
         activity?.findViewById<ImageView>(R.id.avatarAppbarImageView)?.visibility = View.GONE
-        activity?.findViewById<ImageView>(R.id.menuImageView)?.setImageResource(R.drawable.ic_arrow_back)
-        super.onAttach(context)
+        activity?.findViewById<ImageView>(R.id.menuImageView)
+            ?.setImageResource(R.drawable.ic_arrow_back)
     }
 
     override fun onCreateView(
@@ -59,12 +65,17 @@ class ProfileFragment : Fragment() {
             Intent(activity, MainActivity::class.java).apply {
                 startActivity(this)
             }
+            onLogoutAndFinishListener.onLogoutAndFinish()
         }
     }
 
     override fun onDestroyView() {
         _binding = null
         super.onDestroyView()
+    }
+
+    interface OnLogoutAndFinishListener {
+        fun onLogoutAndFinish()
     }
 
     companion object {
