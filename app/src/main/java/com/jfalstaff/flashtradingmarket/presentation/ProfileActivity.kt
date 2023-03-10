@@ -1,8 +1,7 @@
 package com.jfalstaff.flashtradingmarket.presentation
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.jfalstaff.flashtradingmarket.R
 import com.jfalstaff.flashtradingmarket.databinding.ActivityProfileBinding
@@ -29,7 +28,7 @@ class ProfileActivity : AppCompatActivity(), ProfileFragment.OnLogoutAndFinishLi
 
     private fun initBottomNavigation() {
         binding.bottomNavigationView.setOnItemSelectedListener { menuItem ->
-            when(menuItem.itemId) {
+            when (menuItem.itemId) {
                 R.id.menu_item_home -> {
                     openFragment(PageOneFragment.newInstance())
                     true
@@ -64,6 +63,9 @@ class ProfileActivity : AppCompatActivity(), ProfileFragment.OnLogoutAndFinishLi
 
     override fun onLogoutAndFinish() {
         finish()
-        Log.d("VVV Activity", "finished")
+    }
+
+    override fun backToolbarListener() {
+        openFragment(PageOneFragment.newInstance())
     }
 }

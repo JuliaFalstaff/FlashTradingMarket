@@ -27,11 +27,14 @@ class ProfileFragment : Fragment() {
         } else {
             throw RuntimeException(getString(R.string.activity_must_implement_listener))
         }
+        setCustomToolbar()
+    }
+
+    private fun setCustomToolbar() {
         activity?.findViewById<TextView>(R.id.toolbarTitleTextView)?.text =
             getString(R.string.profile)
         activity?.findViewById<ImageView>(R.id.avatarAppbarImageView)?.visibility = View.GONE
         activity?.findViewById<TextView>(R.id.locationTextView)?.visibility = View.GONE
-//        activity?.findViewById<ImageView>(R.id.arrowDownImageView)?.visibility = View.GONE
         activity?.findViewById<ImageView>(R.id.menuImageView)
             ?.setImageResource(R.drawable.ic_arrow_back)
     }
@@ -49,6 +52,13 @@ class ProfileFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         logOut()
         downloadUserImage()
+        setBackToolbarClickListener()
+    }
+
+    private fun setBackToolbarClickListener() {
+        requireActivity().findViewById<ImageView>(R.id.menuImageView).setOnClickListener {
+            onLogoutAndFinishListener.backToolbarListener()
+        }
     }
 
     private fun downloadUserImage() = with(binding) {
@@ -78,6 +88,7 @@ class ProfileFragment : Fragment() {
 
     interface OnLogoutAndFinishListener {
         fun onLogoutAndFinish()
+        fun backToolbarListener()
     }
 
     companion object {
