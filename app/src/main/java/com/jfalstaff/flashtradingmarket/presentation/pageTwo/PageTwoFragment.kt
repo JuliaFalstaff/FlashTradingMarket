@@ -2,12 +2,12 @@ package com.jfalstaff.flashtradingmarket.presentation.pageTwo
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
@@ -18,6 +18,7 @@ import com.jfalstaff.flashtradingmarket.domain.entity.DetailInfo
 import com.jfalstaff.flashtradingmarket.presentation.ViewModelFactory
 import com.jfalstaff.flashtradingmarket.presentation.profile.IOnLogoutAndFinishListener
 import javax.inject.Inject
+
 
 class PageTwoFragment : Fragment() {
 
@@ -66,11 +67,33 @@ class PageTwoFragment : Fragment() {
         observeData()
         changeTotalInfo()
         setBackToolbarClickListener()
+        addToFavourite()
+        shareProduct()
+    }
+
+    private fun shareProduct() {
+        binding.addToFavouriteButton.setOnClickListener {
+            Toast.makeText(
+                requireActivity(),
+                getString(R.string.add_to_favourite),
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+    }
+
+    private fun addToFavourite() {
+        binding.shareButton.setOnClickListener {
+            Toast.makeText(
+                requireActivity(),
+                getString(R.string.share),
+                Toast.LENGTH_SHORT
+            ).show()
+        }
     }
 
     private fun changeTotalInfo() {
         viewModel.count.observe(viewLifecycleOwner) {
-            binding.quantityTextView.text = "Quantity: $it"
+            binding.quantityTextView.text = String.format(getString(R.string.quantity), it)
         }
 
         binding.addButton.setOnClickListener {
@@ -81,8 +104,7 @@ class PageTwoFragment : Fragment() {
         }
 
         viewModel.total.observe(viewLifecycleOwner) {
-            binding.totalPriceTextView.text = it.toString()
-            Log.d("VVV price", it.toString())
+            binding.totalPriceTextView.text = String.format(getString(R.string.total_sum), it)
         }
     }
 
@@ -96,12 +118,14 @@ class PageTwoFragment : Fragment() {
     private fun renderData(detailInfo: DetailInfo) = with(binding) {
         productDescriptionInfoTextView.text = detailInfo.description
         productNameInfoTextView.text = detailInfo.name
-        productPriceInfoTextView.text = detailInfo.price.toString()
+        productPriceInfoTextView.text =
+            String.format(getString(R.string.price_info), detailInfo.price)
         Glide.with(requireActivity())
             .load(detailInfo.imageUrls.first())
             .into(productPictureDetailImageView)
         ratingTextView.text = detailInfo.rating.toString()
-        reviewTextView.text = detailInfo.numberOfReviews.toString()
+        reviewTextView.text =
+            String.format(getString(R.string.reviews_count), detailInfo.numberOfReviews)
     }
 
     private fun setBackToolbarClickListener() {

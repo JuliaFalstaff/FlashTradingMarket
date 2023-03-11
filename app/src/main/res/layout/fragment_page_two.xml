@@ -13,8 +13,11 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/productPictureDetailImageView"
-        android:layout_width="wrap_content"
+        android:layout_width="328dp"
         android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:src="@tools:sample/avatars" />
@@ -30,6 +33,7 @@
         app:layout_constraintStart_toEndOf="@+id/productPictureDetailImageView">
 
         <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/addToFavouriteButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -46,6 +50,7 @@
             android:src="@drawable/ic_line" />
 
         <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/shareButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -186,7 +191,8 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="0dp"
-        android:layout_height="250dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="@dimen/margin_24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -216,10 +222,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_16dp"
-                android:layout_marginBottom="@dimen/margin_16dp"
                 android:background="@drawable/background_button_quantity"
                 android:src="@drawable/ic_minus"
-                app:layout_constraintStart_toStartOf="@+id/textView"
+                app:layout_constraintStart_toStartOf="@+id/quantityTextView"
                 app:layout_constraintTop_toBottomOf="@+id/quantityTextView" />
 
             <androidx.appcompat.widget.AppCompatImageButton
