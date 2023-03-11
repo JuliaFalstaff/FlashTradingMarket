@@ -37,14 +37,30 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="@string/profile"
+                android:text="@string/page_one_title_toolbar"
                 android:textColor="@color/black"
                 android:textSize="@dimen/profile_title"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/avatarAppbarImageView"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/toolbarNameTextView"
+                style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/name"
+                android:paddingStart="@dimen/padding_4dp"
+                android:textColor="@color/name_toolbar"
+                android:textSize="@dimen/profile_title"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/toolbarTitleTextView"
+                app:layout_constraintStart_toEndOf="@id/toolbarTitleTextView"
+                app:layout_constraintTop_toTopOf="@+id/toolbarTitleTextView" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/avatarAppbarImageView"

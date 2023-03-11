@@ -37,5 +37,6 @@
     <color name="cardview_background">#181726</color>
     <color name="quantity_grey">#808080</color>
     <color name="total_price_alpha">#99A0FF</color>
+    <color name="name_toolbar">#4E55D7</color>
 
 </resources>

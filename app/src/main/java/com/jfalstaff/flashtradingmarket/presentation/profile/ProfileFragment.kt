@@ -33,6 +33,7 @@ class ProfileFragment : Fragment() {
     private fun setCustomToolbar() {
         activity?.findViewById<TextView>(R.id.toolbarTitleTextView)?.text =
             getString(R.string.profile)
+        activity?.findViewById<TextView>(R.id.toolbarNameTextView)?.visibility = View.GONE
         activity?.findViewById<ImageView>(R.id.avatarAppbarImageView)?.visibility = View.GONE
         activity?.findViewById<TextView>(R.id.locationTextView)?.visibility = View.GONE
         activity?.findViewById<ImageView>(R.id.menuImageView)

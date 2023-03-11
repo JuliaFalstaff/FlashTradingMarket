@@ -20,6 +20,7 @@ import com.jfalstaff.flashtradingmarket.presentation.ViewModelFactory
 import com.jfalstaff.flashtradingmarket.presentation.adapters.FlashSaleAdapter
 import com.jfalstaff.flashtradingmarket.presentation.adapters.LatestAdapter
 import com.jfalstaff.flashtradingmarket.presentation.pageTwo.PageTwoFragment
+import com.jfalstaff.flashtradingmarket.utils.setColouredSpan
 import javax.inject.Inject
 
 class PageOneFragment : Fragment() {
@@ -41,11 +42,17 @@ class PageOneFragment : Fragment() {
 
     override fun onAttach(context: Context) {
         component.inject(this)
+        setCustomToolbar()
+        super.onAttach(context)
+    }
+
+    private fun setCustomToolbar() {
         activity?.findViewById<TextView>(R.id.toolbarTitleTextView)?.text =
             getString(R.string.page_one_title_toolbar)
         activity?.findViewById<ImageView>(R.id.avatarAppbarImageView)?.visibility = View.VISIBLE
+        activity?.findViewById<TextView>(R.id.toolbarNameTextView)?.visibility = View.VISIBLE
+        activity?.findViewById<TextView>(R.id.locationTextView)?.visibility = View.VISIBLE
         activity?.findViewById<ImageView>(R.id.menuImageView)?.setImageResource(R.drawable.ic_menu)
-        super.onAttach(context)
     }
 
     override fun onCreateView(

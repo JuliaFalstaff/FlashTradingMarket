@@ -39,7 +39,7 @@ class ProfileActivity : AppCompatActivity(), IOnLogoutAndFinishListener {
                     true
                 }
                 R.id.menu_item_cart -> {
-                    //TODO
+                    openFragment(CardFragment.newInstance())
                     true
                 }
                 R.id.menu_item_chat -> {

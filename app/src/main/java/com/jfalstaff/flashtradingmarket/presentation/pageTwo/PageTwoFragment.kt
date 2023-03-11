@@ -15,6 +15,7 @@ import com.jfalstaff.flashtradingmarket.R
 import com.jfalstaff.flashtradingmarket.TradeMarketApp
 import com.jfalstaff.flashtradingmarket.databinding.FragmentPageTwoBinding
 import com.jfalstaff.flashtradingmarket.domain.entity.DetailInfo
+import com.jfalstaff.flashtradingmarket.presentation.CardFragment
 import com.jfalstaff.flashtradingmarket.presentation.ViewModelFactory
 import com.jfalstaff.flashtradingmarket.presentation.profile.IOnLogoutAndFinishListener
 import javax.inject.Inject
@@ -69,6 +70,16 @@ class PageTwoFragment : Fragment() {
         setBackToolbarClickListener()
         addToFavourite()
         shareProduct()
+        addToCard()
+    }
+
+    private fun addToCard() {
+        binding.addToCardLayout.setOnClickListener {
+            requireActivity().supportFragmentManager.beginTransaction()
+                .replace(R.id.container, CardFragment.newInstance())
+                .addToBackStack(null)
+                .commit()
+        }
     }
 
     private fun shareProduct() {
