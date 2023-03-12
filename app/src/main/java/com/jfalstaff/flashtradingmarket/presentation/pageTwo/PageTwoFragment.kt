@@ -1,11 +1,14 @@
 package com.jfalstaff.flashtradingmarket.presentation.pageTwo
 
 import android.content.Context
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.RadioButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -137,6 +140,16 @@ class PageTwoFragment : Fragment() {
         ratingTextView.text = detailInfo.rating.toString()
         reviewTextView.text =
             String.format(getString(R.string.reviews_count), detailInfo.numberOfReviews)
+        setColor(detailInfo.colors)
+    }
+
+    private fun setColor(colors: List<String>) {
+        val color1 = colors[0]
+        val color2 = colors[1]
+        val color3 = colors[2]
+        binding.colorRadioGroup.findViewById<RadioButton>(R.id.colorOne).buttonTintList = ColorStateList.valueOf(Color.parseColor(color1))
+        binding.colorRadioGroup.findViewById<RadioButton>(R.id.colorTwo).buttonTintList = ColorStateList.valueOf(Color.parseColor(color2))
+        binding.colorRadioGroup.findViewById<RadioButton>(R.id.colorThree).buttonTintList = ColorStateList.valueOf(Color.parseColor(color3))
     }
 
     private fun setBackToolbarClickListener() {

@@ -38,5 +38,6 @@
     <color name="quantity_grey">#808080</color>
     <color name="total_price_alpha">#99A0FF</color>
     <color name="name_toolbar">#4E55D7</color>
+    <color name="stroke_color">#ADADAD</color>
 
 </resources>

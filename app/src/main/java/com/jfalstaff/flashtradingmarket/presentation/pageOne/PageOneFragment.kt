@@ -8,19 +8,16 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.jfalstaff.flashtradingmarket.R
 import com.jfalstaff.flashtradingmarket.TradeMarketApp
 import com.jfalstaff.flashtradingmarket.databinding.FragmentPageOneBinding
 import com.jfalstaff.flashtradingmarket.domain.AppState
-import com.jfalstaff.flashtradingmarket.domain.entity.Latest
 import com.jfalstaff.flashtradingmarket.presentation.ViewModelFactory
 import com.jfalstaff.flashtradingmarket.presentation.adapters.FlashSaleAdapter
 import com.jfalstaff.flashtradingmarket.presentation.adapters.LatestAdapter
 import com.jfalstaff.flashtradingmarket.presentation.pageTwo.PageTwoFragment
-import com.jfalstaff.flashtradingmarket.utils.setColouredSpan
 import javax.inject.Inject
 
 class PageOneFragment : Fragment() {
@@ -85,14 +82,18 @@ class PageOneFragment : Fragment() {
     }
 
     private fun renderData(state: AppState?) {
-        when(state) {
+        when (state) {
             is AppState.SuccessApiResults -> {
                 latestAdapter.submitList(state.results.first.latest)
                 flashSaleAdapter.submitList(state.results.second.flashSale)
                 setAdapterListener()
             }
             is AppState.Error -> {
-                Toast.makeText(requireActivity(), "Error: ${state.error.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    requireActivity(),
+                    "Error: ${state.error.message}",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
             else -> {
                 Toast.makeText(requireActivity(), "Error", Toast.LENGTH_SHORT).show()
