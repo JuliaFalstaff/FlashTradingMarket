@@ -20,7 +20,9 @@ import com.jfalstaff.flashtradingmarket.databinding.FragmentPageTwoBinding
 import com.jfalstaff.flashtradingmarket.domain.entity.DetailInfo
 import com.jfalstaff.flashtradingmarket.presentation.CardFragment
 import com.jfalstaff.flashtradingmarket.presentation.ViewModelFactory
+import com.jfalstaff.flashtradingmarket.presentation.adapters.CarouselAdapter
 import com.jfalstaff.flashtradingmarket.presentation.profile.IOnLogoutAndFinishListener
+import org.imaginativeworld.whynotimagecarousel.model.CarouselItem
 import javax.inject.Inject
 
 
@@ -29,6 +31,7 @@ class PageTwoFragment : Fragment() {
     private var _binding: FragmentPageTwoBinding? = null
     private val binding get() = _binding!!
     private lateinit var onLogoutAndFinishListener: IOnLogoutAndFinishListener
+    private var carouselAdapter: CarouselAdapter? = null
 
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
@@ -141,15 +144,35 @@ class PageTwoFragment : Fragment() {
         reviewTextView.text =
             String.format(getString(R.string.reviews_count), detailInfo.numberOfReviews)
         setColor(detailInfo.colors)
+        setCarousel(detailInfo.imageUrls)
+    }
+
+    private fun setCarousel(imageUrls: List<String>) {
+        binding.imageCarousel.registerLifecycle(viewLifecycleOwner)
+        carouselAdapter = CarouselAdapter()
+        binding.imageCarousel.carouselListener = carouselAdapter
+        val imagesList = mutableListOf<CarouselItem>()
+        for (image in imageUrls) {
+            imagesList.add(CarouselItem(imageUrl = image))
+        }
+        binding.imageCarousel.setData(imagesList)
+        carouselAdapter?.onItemClick = {
+            Glide.with(requireActivity())
+                .load(it.imageUrl)
+                .into(binding.productPictureDetailImageView)
+        }
     }
 
     private fun setColor(colors: List<String>) {
         val color1 = colors[0]
         val color2 = colors[1]
         val color3 = colors[2]
-        binding.colorRadioGroup.findViewById<RadioButton>(R.id.colorOne).buttonTintList = ColorStateList.valueOf(Color.parseColor(color1))
-        binding.colorRadioGroup.findViewById<RadioButton>(R.id.colorTwo).buttonTintList = ColorStateList.valueOf(Color.parseColor(color2))
-        binding.colorRadioGroup.findViewById<RadioButton>(R.id.colorThree).buttonTintList = ColorStateList.valueOf(Color.parseColor(color3))
+        binding.colorRadioGroup.findViewById<RadioButton>(R.id.colorOne).buttonTintList =
+            ColorStateList.valueOf(Color.parseColor(color1))
+        binding.colorRadioGroup.findViewById<RadioButton>(R.id.colorTwo).buttonTintList =
+            ColorStateList.valueOf(Color.parseColor(color2))
+        binding.colorRadioGroup.findViewById<RadioButton>(R.id.colorThree).buttonTintList =
+            ColorStateList.valueOf(Color.parseColor(color3))
     }
 
     private fun setBackToolbarClickListener() {
