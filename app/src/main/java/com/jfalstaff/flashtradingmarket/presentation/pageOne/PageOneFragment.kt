@@ -2,9 +2,11 @@ package com.jfalstaff.flashtradingmarket.presentation.pageOne
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -65,6 +67,15 @@ class PageOneFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initRecyclerView()
         observeData()
+        observeSearchResult()
+    }
+
+    private fun observeSearchResult() {
+        viewModel.getSearchResult()
+        viewModel.searchResult.observe(viewLifecycleOwner) {
+            val adapter = ArrayAdapter(requireActivity(), R.layout.search_item, it)
+            binding.searchView.setAdapter(adapter)
+        }
     }
 
     private fun initRecyclerView() {

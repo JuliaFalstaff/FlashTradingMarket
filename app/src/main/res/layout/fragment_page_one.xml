@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <androidx.appcompat.widget.SearchView
+        <androidx.appcompat.widget.AppCompatAutoCompleteTextView
             android:id="@+id/searchView"
             style="@style/TradeSearchView"
             android:layout_width="match_parent"
@@ -19,14 +19,15 @@
             android:layout_marginTop="@dimen/margin_8dp"
             android:layout_marginStart="@dimen/margin_32dp"
             android:layout_marginEnd="@dimen/margin_32dp"
+            android:gravity="center"
+            android:paddingEnd="@dimen/padding_8dp"
+            android:textSize="@dimen/search_text_size"
             android:background="@drawable/background_search"
-            android:layoutDirection="rtl"
-            app:queryBackground="@android:color/transparent"
-            app:iconifiedByDefault="false"
+            android:hint="@string/what_are_you_looking_for"
+            android:drawableEnd="@drawable/ic_search"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:queryHint="@string/what_are_you_looking_for" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <HorizontalScrollView
             android:id="@+id/horizontalScrollView"

@@ -35,7 +35,6 @@ class LatestAdapter : ListAdapter<LatestGoods, LatestAdapter.LatestViewHolder>(I
                 .load(latest.imageUrl)
                 .placeholder(R.drawable.ic_launcher_foreground)
                 .into(productPicture)
-
         }
     }
 }

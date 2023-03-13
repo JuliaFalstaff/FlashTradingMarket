@@ -52,5 +52,4 @@ class GoodsMapper @Inject constructor() {
             rating = info.rating
         )
     }
-
 }
