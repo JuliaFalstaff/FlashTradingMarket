@@ -1,5 +1,5 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
     id 'kotlin-parcelize'
@@ -9,13 +9,11 @@ android {
     compileSdk 32
 
     defaultConfig {
-        applicationId "com.jfalstaff.flashtradingmarket"
         minSdk 23
         targetSdk 32
-        versionCode 1
-        versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
@@ -30,20 +28,12 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
-        freeCompilerArgs += [
-                '-Xjvm-default=enable'
-        ]
-    }
-
-    buildFeatures {
-        viewBinding true
     }
 }
 
 dependencies {
 
     implementation project(":domain")
-    implementation project(":data")
 
     implementation 'androidx.core:core-ktx:1.8.0'
     implementation 'androidx.appcompat:appcompat:1.5.0'
@@ -53,25 +43,17 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
-    //Coroutines
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0"
-
-    //Glide
-    implementation 'com.github.bumptech.glide:glide:4.12.0'
-    kapt 'com.github.bumptech.glide:compiler:4.12.0'
-
-    //Dagger 2
-    implementation 'com.google.dagger:dagger:2.40'
-    kapt 'com.google.dagger:dagger-compiler:2.40'
+    //Retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.0'
 
     //Room
     implementation 'androidx.room:room-runtime:2.4.3'
     kapt 'androidx.room:room-compiler:2.4.3'
     implementation("androidx.room:room-ktx:2.4.3")
 
-    // Circle Indicator
-    implementation 'me.relex:circleindicator:2.1.6'
-    implementation 'org.imaginativeworld.whynotimagecarousel:whynotimagecarousel:2.1.0'
+    //Dagger 2
+    implementation 'com.google.dagger:dagger:2.40'
+    kapt 'com.google.dagger:dagger-compiler:2.40'
 }

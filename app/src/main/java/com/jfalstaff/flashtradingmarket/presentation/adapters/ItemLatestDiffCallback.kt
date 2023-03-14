@@ -1,16 +1,16 @@
 package com.jfalstaff.flashtradingmarket.presentation.adapters
 
 import androidx.recyclerview.widget.DiffUtil
-import com.jfalstaff.domain.entity.FlashSale
+import com.jfalstaff.domain.entity.LatestGoods
 
-class ItemFlashSaleDiffCallback : DiffUtil.ItemCallback<FlashSale>() {
+class ItemLatestDiffCallback : DiffUtil.ItemCallback<LatestGoods>() {
     override fun areItemsTheSame(
-        oldItem: FlashSale,
-        newItem: FlashSale
+        oldItem: LatestGoods,
+        newItem: LatestGoods
     ) = oldItem == newItem
 
     override fun areContentsTheSame(
-        oldItem: FlashSale,
-        newItem: FlashSale
+        oldItem: LatestGoods,
+        newItem: LatestGoods
     ) = oldItem == newItem
 }

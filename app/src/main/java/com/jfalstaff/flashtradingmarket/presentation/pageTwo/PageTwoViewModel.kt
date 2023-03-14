@@ -11,11 +11,12 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class PageTwoViewModel @Inject constructor(
-    private val getDetailInfoUseCase: com.jfalstaff.domain.usecases.GetDetailInfoUseCase
+    private val getDetailInfoUseCase: GetDetailInfoUseCase
 ) : ViewModel() {
 
-    private val _detailInfo: MutableLiveData<com.jfalstaff.domain.entity.DetailInfo> = MutableLiveData()
-    val detailInfo: LiveData<com.jfalstaff.domain.entity.DetailInfo> = _detailInfo
+    private val _detailInfo: MutableLiveData<DetailInfo> =
+        MutableLiveData()
+    val detailInfo: LiveData<DetailInfo> = _detailInfo
 
     private var initialCount = 0
     private var priceTotal = 0

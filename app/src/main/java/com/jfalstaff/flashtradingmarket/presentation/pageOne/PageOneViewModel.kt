@@ -14,13 +14,13 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class PageOneViewModel @Inject constructor(
-    private val getLatestGoodsUseCase: com.jfalstaff.domain.usecases.GetLatestGoodsUseCase,
-    private val getFlashSaleUseCase: com.jfalstaff.domain.usecases.GetFlashSaleUseCase,
-    private val getSearchResultUseCase: com.jfalstaff.domain.usecases.GetSearchResultUseCase
+    private val getLatestGoodsUseCase: GetLatestGoodsUseCase,
+    private val getFlashSaleUseCase: GetFlashSaleUseCase,
+    private val getSearchResultUseCase: GetSearchResultUseCase
 ) : ViewModel() {
 
-    private val _goodsResult: MutableLiveData<com.jfalstaff.domain.AppState> = MutableLiveData()
-    val goodsResult: LiveData<com.jfalstaff.domain.AppState> = _goodsResult
+    private val _goodsResult: MutableLiveData<AppState> = MutableLiveData()
+    val goodsResult: LiveData<AppState> = _goodsResult
 
     private val _searchResult: MutableLiveData<List<String>> = MutableLiveData()
     val searchResult: LiveData<List<String>> = _searchResult
@@ -31,9 +31,9 @@ class PageOneViewModel @Inject constructor(
             val flashSaleData = async { getFlashSaleUseCase() }
             try {
                 val result = Pair(latestData.await(), flashSaleData.await())
-                _goodsResult.postValue(com.jfalstaff.domain.AppState.SuccessApiResults(result))
+                _goodsResult.postValue(AppState.SuccessApiResults(result))
             } catch (e: Throwable) {
-                _goodsResult.postValue(com.jfalstaff.domain.AppState.Error(e))
+                _goodsResult.postValue(AppState.Error(e))
             }
         }
     }

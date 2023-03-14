@@ -2,14 +2,7 @@ package com.jfalstaff.flashtradingmarket.di
 
 import android.app.Application
 import androidx.room.Room
-import com.jfalstaff.flashtradingmarket.data.database.UserDao
-import com.jfalstaff.flashtradingmarket.data.database.UserDataBase
-import com.jfalstaff.flashtradingmarket.data.network.ApiFactory
-import com.jfalstaff.flashtradingmarket.data.network.ApiService
-import com.jfalstaff.flashtradingmarket.data.repository.RepositoryImpl
-import com.jfalstaff.flashtradingmarket.data.repository.UserRepositoryImpl
-import com.jfalstaff.domain.IRepository
-import com.jfalstaff.domain.IUserRepository
+import com.jfalstaff.data.network.ApiFactory
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -19,11 +12,11 @@ interface DataModule {
 
     @ApplicationScope
     @Binds
-    fun bindUserRepository(impl: UserRepositoryImpl): com.jfalstaff.domain.IUserRepository
+    fun bindUserRepository(impl: com.jfalstaff.data.repository.UserRepositoryImpl): com.jfalstaff.domain.IUserRepository
 
     @ApplicationScope
     @Binds
-    fun bindRepository(impl: RepositoryImpl): com.jfalstaff.domain.IRepository
+    fun bindRepository(impl: com.jfalstaff.data.repository.RepositoryImpl): com.jfalstaff.domain.IRepository
 
     companion object {
 
@@ -31,17 +24,17 @@ interface DataModule {
         @Provides
         fun provideDataBase(
             application: Application
-        ): UserDao {
+        ): com.jfalstaff.data.database.UserDao {
             return Room.databaseBuilder(
                 application,
-                UserDataBase::class.java,
+                com.jfalstaff.data.database.UserDataBase::class.java,
                 DATABASE_NAME
             ).build().userDao()
         }
 
         @ApplicationScope
         @Provides
-        fun provideApiService(): ApiService {
+        fun provideApiService(): com.jfalstaff.data.network.ApiService {
             return ApiFactory.api
         }
     }

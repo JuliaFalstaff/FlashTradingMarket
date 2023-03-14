@@ -14,7 +14,6 @@ import androidx.lifecycle.ViewModelProvider
 import com.jfalstaff.flashtradingmarket.R
 import com.jfalstaff.flashtradingmarket.TradeMarketApp
 import com.jfalstaff.flashtradingmarket.databinding.FragmentPageOneBinding
-import com.jfalstaff.domain.AppState
 import com.jfalstaff.flashtradingmarket.presentation.ViewModelFactory
 import com.jfalstaff.flashtradingmarket.presentation.adapters.FlashSaleAdapter
 import com.jfalstaff.flashtradingmarket.presentation.adapters.LatestAdapter

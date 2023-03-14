@@ -13,8 +13,6 @@ import androidx.lifecycle.ViewModelProvider
 import com.jfalstaff.flashtradingmarket.R
 import com.jfalstaff.flashtradingmarket.TradeMarketApp
 import com.jfalstaff.flashtradingmarket.databinding.FragmentSignInPageBinding
-import com.jfalstaff.domain.AppState
-import com.jfalstaff.domain.entity.UserProfile
 import com.jfalstaff.flashtradingmarket.presentation.ProfileActivity
 import com.jfalstaff.flashtradingmarket.presentation.ViewModelFactory
 import com.jfalstaff.flashtradingmarket.utils.isEmailValid
@@ -77,7 +75,11 @@ class SignInFragment : Fragment() {
                     }
                 }
                 is com.jfalstaff.domain.AppState.ErrorMessage -> {
-                    Toast.makeText(requireActivity(), "Error: ${it.errorMessage}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        requireActivity(),
+                        "Error: ${it.errorMessage}",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
         }
