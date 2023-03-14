@@ -32,7 +32,10 @@ class FlashSaleAdapter :
         fun bind(flashSale: FlashSale) = with(binding) {
             productCategoryTextView.text = flashSale.category
             productNameTextView.text = flashSale.name
-            priceTextView.text = flashSale.price.toString()
+            priceTextView.text = String.format(
+                itemView.context.getString(R.string.price_info),
+                flashSale.price.toInt()
+            )
             saleTextView.text = String.format(
                 itemView.context.getString(R.string.discount_template),
                 flashSale.discount.toString()

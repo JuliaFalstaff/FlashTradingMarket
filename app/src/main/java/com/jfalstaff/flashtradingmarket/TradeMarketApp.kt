@@ -8,5 +8,4 @@ class TradeMarketApp: Application() {
     val component by lazy {
         DaggerApplicationComponent.factory().create(application = this)
     }
-
 }

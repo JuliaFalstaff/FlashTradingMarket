@@ -64,6 +64,7 @@
         android:layout_marginEnd="@dimen/margin_sing_in_32dp"
         android:textColorHint="@color/edit_text_form_grey"
         app:boxStrokeWidth="0dp"
+        android:textAlignment="center"
         app:endIconMode="password_toggle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -79,6 +80,7 @@
             android:hint="@string/password"
             android:inputType="textPassword"
             android:paddingStart="48dp"
+            android:paddingTop="0dp"
             android:textColor="@color/edit_text_form_grey"
             android:textSize="@dimen/edit_text_info_size" />
 

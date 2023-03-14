@@ -7,7 +7,6 @@ import androidx.lifecycle.viewModelScope
 import com.jfalstaff.flashtradingmarket.domain.AppState
 import com.jfalstaff.flashtradingmarket.domain.entity.UserProfile
 import com.jfalstaff.flashtradingmarket.domain.usecases.CheckUserUseCase
-import com.jfalstaff.flashtradingmarket.domain.usecases.GetSavedUserUseCase
 import com.jfalstaff.flashtradingmarket.domain.usecases.SignInNewUserUseCase
 import com.jfalstaff.flashtradingmarket.utils.ALREADY_HAVE_ANN_ACCOUNT
 import com.jfalstaff.flashtradingmarket.utils.SAVING_USER_ERROR
@@ -34,11 +33,11 @@ class SignInViewModel @Inject constructor(
         }
     }
 
-     fun checkUser(userProfile: UserProfile) {
+    fun checkUser(userProfile: UserProfile) {
         viewModelScope.launch {
 
 
-            if(!checkUserUseCase(userProfile.firstName)) {
+            if (!checkUserUseCase(userProfile.firstName)) {
                 saveNewUser(userProfile)
             } else {
                 _newUser.value = AppState.ErrorMessage(ALREADY_HAVE_ANN_ACCOUNT)
