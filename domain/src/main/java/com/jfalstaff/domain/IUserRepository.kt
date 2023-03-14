@@ -1,6 +1,6 @@
-package com.jfalstaff.flashtradingmarket.domain
+package com.jfalstaff.domain
 
-import com.jfalstaff.flashtradingmarket.domain.entity.UserProfile
+import com.jfalstaff.domain.entity.UserProfile
 
 interface IUserRepository {
     suspend fun signInNewUserAndSave(userProfile: UserProfile)

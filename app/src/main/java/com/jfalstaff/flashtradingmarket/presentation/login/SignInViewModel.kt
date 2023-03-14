@@ -4,10 +4,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.jfalstaff.flashtradingmarket.domain.AppState
-import com.jfalstaff.flashtradingmarket.domain.entity.UserProfile
-import com.jfalstaff.flashtradingmarket.domain.usecases.CheckUserUseCase
-import com.jfalstaff.flashtradingmarket.domain.usecases.SignInNewUserUseCase
+import com.jfalstaff.domain.AppState
+import com.jfalstaff.domain.entity.UserProfile
+import com.jfalstaff.domain.usecases.CheckUserUseCase
+import com.jfalstaff.domain.usecases.SignInNewUserUseCase
 import com.jfalstaff.flashtradingmarket.utils.ALREADY_HAVE_ANN_ACCOUNT
 import com.jfalstaff.flashtradingmarket.utils.SAVING_USER_ERROR
 import com.jfalstaff.flashtradingmarket.utils.isEmailValid
@@ -15,32 +15,32 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class SignInViewModel @Inject constructor(
-    private val signInNewUserUseCase: SignInNewUserUseCase,
-    private val checkUserUseCase: CheckUserUseCase
+    private val signInNewUserUseCase: com.jfalstaff.domain.usecases.SignInNewUserUseCase,
+    private val checkUserUseCase: com.jfalstaff.domain.usecases.CheckUserUseCase
 ) : ViewModel() {
 
-    private var _newUser: MutableLiveData<AppState> = MutableLiveData()
-    val newUser: LiveData<AppState> = _newUser
+    private var _newUser: MutableLiveData<com.jfalstaff.domain.AppState> = MutableLiveData()
+    val newUser: LiveData<com.jfalstaff.domain.AppState> = _newUser
 
-    fun saveNewUser(userProfile: UserProfile) {
+    fun saveNewUser(userProfile: com.jfalstaff.domain.entity.UserProfile) {
         viewModelScope.launch {
             if (emailValidation(userProfile.email)) {
                 signInNewUserUseCase(userProfile)
-                _newUser.value = AppState.Success(userProfile)
+                _newUser.value = com.jfalstaff.domain.AppState.Success(userProfile)
             } else {
-                _newUser.value = AppState.ErrorMessage(SAVING_USER_ERROR)
+                _newUser.value = com.jfalstaff.domain.AppState.ErrorMessage(SAVING_USER_ERROR)
             }
         }
     }
 
-    fun checkUser(userProfile: UserProfile) {
+    fun checkUser(userProfile: com.jfalstaff.domain.entity.UserProfile) {
         viewModelScope.launch {
 
 
             if (!checkUserUseCase(userProfile.firstName)) {
                 saveNewUser(userProfile)
             } else {
-                _newUser.value = AppState.ErrorMessage(ALREADY_HAVE_ANN_ACCOUNT)
+                _newUser.value = com.jfalstaff.domain.AppState.ErrorMessage(ALREADY_HAVE_ANN_ACCOUNT)
             }
         }
 

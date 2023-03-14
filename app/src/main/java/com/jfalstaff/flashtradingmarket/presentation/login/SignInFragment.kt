@@ -13,8 +13,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.jfalstaff.flashtradingmarket.R
 import com.jfalstaff.flashtradingmarket.TradeMarketApp
 import com.jfalstaff.flashtradingmarket.databinding.FragmentSignInPageBinding
-import com.jfalstaff.flashtradingmarket.domain.AppState
-import com.jfalstaff.flashtradingmarket.domain.entity.UserProfile
+import com.jfalstaff.domain.AppState
+import com.jfalstaff.domain.entity.UserProfile
 import com.jfalstaff.flashtradingmarket.presentation.ProfileActivity
 import com.jfalstaff.flashtradingmarket.presentation.ViewModelFactory
 import com.jfalstaff.flashtradingmarket.utils.isEmailValid
@@ -70,13 +70,13 @@ class SignInFragment : Fragment() {
     private fun observeUser() {
         viewModel.newUser.observe(viewLifecycleOwner) {
             when (it) {
-                is AppState.Success -> {
+                is com.jfalstaff.domain.AppState.Success -> {
                     Toast.makeText(requireActivity(), "User Saved", Toast.LENGTH_SHORT).show()
                     Intent(requireActivity(), ProfileActivity::class.java).apply {
                         startActivity(this)
                     }
                 }
-                is AppState.ErrorMessage -> {
+                is com.jfalstaff.domain.AppState.ErrorMessage -> {
                     Toast.makeText(requireActivity(), "Error: ${it.errorMessage}", Toast.LENGTH_SHORT).show()
                 }
             }
@@ -98,7 +98,7 @@ class SignInFragment : Fragment() {
         lastName: String
     ) {
         if (email.isEmailValid() && firstName.isNotEmpty() && lastName.isNotEmpty()) {
-            viewModel.checkUser(UserProfile(firstName, lastName, email))
+            viewModel.checkUser(com.jfalstaff.domain.entity.UserProfile(firstName, lastName, email))
             Log.d("VVV", "saved")
         } else {
             showError(email.isEmailValid())

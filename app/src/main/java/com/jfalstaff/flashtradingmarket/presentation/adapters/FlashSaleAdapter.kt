@@ -7,12 +7,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.jfalstaff.flashtradingmarket.R
 import com.jfalstaff.flashtradingmarket.databinding.ItemFlashSaleRvBinding
-import com.jfalstaff.flashtradingmarket.domain.entity.FlashSale
+import com.jfalstaff.domain.entity.FlashSale
 
 class FlashSaleAdapter :
-    ListAdapter<FlashSale, FlashSaleAdapter.FlashSaleViewHolder>(ItemFlashSaleDiffCallback()) {
+    ListAdapter<com.jfalstaff.domain.entity.FlashSale, FlashSaleAdapter.FlashSaleViewHolder>(ItemFlashSaleDiffCallback()) {
 
-    var flashSaleItemClickListener: ((FlashSale) -> Unit)? = null
+    var flashSaleItemClickListener: ((com.jfalstaff.domain.entity.FlashSale) -> Unit)? = null
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -29,7 +29,7 @@ class FlashSaleAdapter :
 
     inner class FlashSaleViewHolder(private val binding: ItemFlashSaleRvBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(flashSale: FlashSale) = with(binding) {
+        fun bind(flashSale: com.jfalstaff.domain.entity.FlashSale) = with(binding) {
             productCategoryTextView.text = flashSale.category
             productNameTextView.text = flashSale.name
             priceTextView.text = String.format(

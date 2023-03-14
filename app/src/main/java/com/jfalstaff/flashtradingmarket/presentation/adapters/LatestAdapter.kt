@@ -7,10 +7,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.jfalstaff.flashtradingmarket.R
 import com.jfalstaff.flashtradingmarket.databinding.ItemLatestRvBinding
-import com.jfalstaff.flashtradingmarket.domain.entity.LatestGoods
+import com.jfalstaff.domain.entity.LatestGoods
 
 class LatestAdapter :
-    ListAdapter<LatestGoods, LatestAdapter.LatestViewHolder>(ItemLatesDiffCallback()) {
+    ListAdapter<com.jfalstaff.domain.entity.LatestGoods, LatestAdapter.LatestViewHolder>(ItemLatesDiffCallback()) {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -27,7 +27,7 @@ class LatestAdapter :
 
     inner class LatestViewHolder(private val binding: ItemLatestRvBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(latest: LatestGoods) = with(binding) {
+        fun bind(latest: com.jfalstaff.domain.entity.LatestGoods) = with(binding) {
             productCategoryTextView.text = latest.category
             productNameTextView.text = latest.name
             priceTextView.text = String.format(

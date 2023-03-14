@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.jfalstaff.flashtradingmarket.TradeMarketApp
 import com.jfalstaff.flashtradingmarket.databinding.FragmentLoginBinding
-import com.jfalstaff.flashtradingmarket.domain.AppState
+import com.jfalstaff.domain.AppState
 import com.jfalstaff.flashtradingmarket.presentation.ProfileActivity
 import com.jfalstaff.flashtradingmarket.presentation.ViewModelFactory
 import javax.inject.Inject
@@ -50,14 +50,14 @@ class LoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel.user.observe(viewLifecycleOwner) {
             when(it) {
-                is AppState.Success -> {
+                is com.jfalstaff.domain.AppState.Success -> {
                     Toast.makeText(requireActivity(), "Login success", Toast.LENGTH_SHORT).show()
                     Log.d("VVV login", it.user.toString())
                     Intent(requireActivity(), ProfileActivity::class.java).apply {
                         startActivity(this)
                     }
                 }
-                is AppState.Error -> {
+                is com.jfalstaff.domain.AppState.Error -> {
                     Toast.makeText(requireActivity(), "Wrong Data: ${it.error}", Toast.LENGTH_SHORT).show()
                 }
             }

@@ -8,8 +8,8 @@ import com.jfalstaff.flashtradingmarket.data.network.ApiFactory
 import com.jfalstaff.flashtradingmarket.data.network.ApiService
 import com.jfalstaff.flashtradingmarket.data.repository.RepositoryImpl
 import com.jfalstaff.flashtradingmarket.data.repository.UserRepositoryImpl
-import com.jfalstaff.flashtradingmarket.domain.IRepository
-import com.jfalstaff.flashtradingmarket.domain.IUserRepository
+import com.jfalstaff.domain.IRepository
+import com.jfalstaff.domain.IUserRepository
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -19,11 +19,11 @@ interface DataModule {
 
     @ApplicationScope
     @Binds
-    fun bindUserRepository(impl: UserRepositoryImpl): IUserRepository
+    fun bindUserRepository(impl: UserRepositoryImpl): com.jfalstaff.domain.IUserRepository
 
     @ApplicationScope
     @Binds
-    fun bindRepository(impl: RepositoryImpl): IRepository
+    fun bindRepository(impl: RepositoryImpl): com.jfalstaff.domain.IRepository
 
     companion object {
 

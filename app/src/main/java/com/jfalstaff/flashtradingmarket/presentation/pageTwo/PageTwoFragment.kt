@@ -17,7 +17,7 @@ import com.bumptech.glide.Glide
 import com.jfalstaff.flashtradingmarket.R
 import com.jfalstaff.flashtradingmarket.TradeMarketApp
 import com.jfalstaff.flashtradingmarket.databinding.FragmentPageTwoBinding
-import com.jfalstaff.flashtradingmarket.domain.entity.DetailInfo
+import com.jfalstaff.domain.entity.DetailInfo
 import com.jfalstaff.flashtradingmarket.presentation.CardFragment
 import com.jfalstaff.flashtradingmarket.presentation.ViewModelFactory
 import com.jfalstaff.flashtradingmarket.presentation.adapters.CarouselAdapter
@@ -132,7 +132,7 @@ class PageTwoFragment : Fragment() {
         }
     }
 
-    private fun renderData(detailInfo: DetailInfo) = with(binding) {
+    private fun renderData(detailInfo: com.jfalstaff.domain.entity.DetailInfo) = with(binding) {
         productDescriptionInfoTextView.text = detailInfo.description
         productNameInfoTextView.text = detailInfo.name
         productPriceInfoTextView.text =

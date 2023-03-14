@@ -1,8 +1,8 @@
-package com.jfalstaff.flashtradingmarket.domain
+package com.jfalstaff.domain
 
-import com.jfalstaff.flashtradingmarket.domain.entity.FlashSaleList
-import com.jfalstaff.flashtradingmarket.domain.entity.Latest
-import com.jfalstaff.flashtradingmarket.domain.entity.UserProfile
+import com.jfalstaff.domain.entity.FlashSaleList
+import com.jfalstaff.domain.entity.Latest
+import com.jfalstaff.domain.entity.UserProfile
 
 sealed class AppState {
     object Loading: AppState()

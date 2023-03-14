@@ -4,18 +4,18 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.jfalstaff.flashtradingmarket.domain.entity.DetailInfo
-import com.jfalstaff.flashtradingmarket.domain.usecases.GetDetailInfoUseCase
+import com.jfalstaff.domain.entity.DetailInfo
+import com.jfalstaff.domain.usecases.GetDetailInfoUseCase
 import com.jfalstaff.flashtradingmarket.utils.DEFAULT_COUNT
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class PageTwoViewModel @Inject constructor(
-    private val getDetailInfoUseCase: GetDetailInfoUseCase
+    private val getDetailInfoUseCase: com.jfalstaff.domain.usecases.GetDetailInfoUseCase
 ) : ViewModel() {
 
-    private val _detailInfo: MutableLiveData<DetailInfo> = MutableLiveData()
-    val detailInfo: LiveData<DetailInfo> = _detailInfo
+    private val _detailInfo: MutableLiveData<com.jfalstaff.domain.entity.DetailInfo> = MutableLiveData()
+    val detailInfo: LiveData<com.jfalstaff.domain.entity.DetailInfo> = _detailInfo
 
     private var initialCount = 0
     private var priceTotal = 0

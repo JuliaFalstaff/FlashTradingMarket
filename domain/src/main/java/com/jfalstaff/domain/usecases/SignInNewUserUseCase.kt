@@ -1,7 +1,7 @@
-package com.jfalstaff.flashtradingmarket.domain.usecases
+package com.jfalstaff.domain.usecases
 
-import com.jfalstaff.flashtradingmarket.domain.IUserRepository
-import com.jfalstaff.flashtradingmarket.domain.entity.UserProfile
+import com.jfalstaff.domain.IUserRepository
+import com.jfalstaff.domain.entity.UserProfile
 import javax.inject.Inject
 
 class SignInNewUserUseCase @Inject constructor(private val userRepository: IUserRepository) {

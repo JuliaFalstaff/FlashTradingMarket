@@ -14,7 +14,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.jfalstaff.flashtradingmarket.R
 import com.jfalstaff.flashtradingmarket.TradeMarketApp
 import com.jfalstaff.flashtradingmarket.databinding.FragmentPageOneBinding
-import com.jfalstaff.flashtradingmarket.domain.AppState
+import com.jfalstaff.domain.AppState
 import com.jfalstaff.flashtradingmarket.presentation.ViewModelFactory
 import com.jfalstaff.flashtradingmarket.presentation.adapters.FlashSaleAdapter
 import com.jfalstaff.flashtradingmarket.presentation.adapters.LatestAdapter
@@ -92,14 +92,14 @@ class PageOneFragment : Fragment() {
         }
     }
 
-    private fun renderData(state: AppState?) {
+    private fun renderData(state: com.jfalstaff.domain.AppState?) {
         when (state) {
-            is AppState.SuccessApiResults -> {
+            is com.jfalstaff.domain.AppState.SuccessApiResults -> {
                 latestAdapter.submitList(state.results.first.latest)
                 flashSaleAdapter.submitList(state.results.second.flashSale)
                 setAdapterListener()
             }
-            is AppState.Error -> {
+            is com.jfalstaff.domain.AppState.Error -> {
                 Toast.makeText(
                     requireActivity(),
                     "Error: ${state.error.message}",

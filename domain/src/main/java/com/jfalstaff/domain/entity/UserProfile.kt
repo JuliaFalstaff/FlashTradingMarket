@@ -1,4 +1,4 @@
-package com.jfalstaff.flashtradingmarket.domain.entity
+package com.jfalstaff.domain.entity
 
 data class UserProfile(
     val firstName: String,

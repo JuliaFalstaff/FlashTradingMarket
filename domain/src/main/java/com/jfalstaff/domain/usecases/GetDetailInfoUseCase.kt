@@ -1,6 +1,6 @@
-package com.jfalstaff.flashtradingmarket.domain.usecases
+package com.jfalstaff.domain.usecases
 
-import com.jfalstaff.flashtradingmarket.domain.IRepository
+import com.jfalstaff.domain.IRepository
 import javax.inject.Inject
 
 class GetDetailInfoUseCase @Inject constructor(private val repository: IRepository) {

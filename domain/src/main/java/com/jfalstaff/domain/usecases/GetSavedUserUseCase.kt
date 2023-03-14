@@ -1,6 +1,6 @@
-package com.jfalstaff.flashtradingmarket.domain.usecases
+package com.jfalstaff.domain.usecases
 
-import com.jfalstaff.flashtradingmarket.domain.IUserRepository
+import com.jfalstaff.domain.IUserRepository
 import javax.inject.Inject
 
 class GetSavedUserUseCase @Inject constructor(private val userRepository: IUserRepository) {
