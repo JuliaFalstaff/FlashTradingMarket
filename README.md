@@ -1,7 +1,7 @@
 # FlashTradingMarket
 #Тестовое задание
 
-[![Watch the video](](https://youtu.be/C8E96rNttwU)
+[Watch the video](https://youtu.be/C8E96rNttwU)
 
 Стек технологий: 
 -	Kotlin
